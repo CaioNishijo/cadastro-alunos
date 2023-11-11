@@ -1,52 +1,52 @@
-// Seleção de elementos
+// Elements
 const registerForm = document.querySelector("#register-form")
 const studentsList = document.querySelector("#students-list")
 const nameInput = document.querySelector("#name")
 const raInput = document.querySelector("#ra")
-const moduloInput = document.querySelector("#modulo")
+const semesterInput = document.querySelector("#semester")
 
-// Criação dos elementos
+// Creating Elements
 registerForm.addEventListener("submit", (e) => {
     e.preventDefault()
     const nameValue = nameInput.value
     const raValue = raInput.value
-    const moduloValue = moduloInput.value 
+    const semesterValue = semesterInput.value 
 
-    // Criar a div
+    // Div
     const student = document.createElement("div")
     student.classList.add("student")
 
-    // Criando botão
+    // Button
     const removeBtn = document.createElement("button")
     removeBtn.classList.add("remove")
     removeBtn.innerHTML = '<i class="fa-solid fa-xmark"></i>'
     student.appendChild(removeBtn)
 
-    // Criando nome
+    // Name
     const name = document.createElement("h3")
     name.innerText = "Name: "+nameValue
     student.appendChild(name)
 
-    // Criando Ra
+    // Ra
     const ra = document.createElement("h4")
     ra.innerText = "RA: "+raValue
     student.appendChild(ra)
 
-    // Criando modulo
-    const modulo = document.createElement("h4")
-    modulo.innerText = "Módulo: "+moduloValue
-    student.appendChild(modulo)
+    // Semester
+    const semester = document.createElement("h4")
+    semester.innerText = "Semester: "+semesterValue
+    student.appendChild(semester)
 
-    // Append na list
+    // List append
     studentsList.appendChild(student)
 
-    // Zerando as infos
+    // infos reset
     nameInput.value = ""
     raInput.value = ""
-    moduloInput.value = ""
+    semesterInput.value = ""
 })
 
-// Código do removeBtn
+// removebtn
 document.addEventListener("click", (e) => {
     const targetElement = e.target
     const parentElement = targetElement.closest("div")
